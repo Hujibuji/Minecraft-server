@@ -160,7 +160,7 @@
 
     .quick-facts {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       margin-bottom: 24px;
     }
@@ -283,7 +283,7 @@
     @media (max-width: 960px) {
       .hero { grid-template-columns: 1fr; text-align: center; }
       .lead { margin-inline: auto; }
-      .quick-facts { grid-template-columns: 1fr 1fr; }
+      .quick-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .buttons { justify-content: center; }
       .grid, .steps { grid-template-columns: 1fr; }
       .server-card { animation: none; }
@@ -315,6 +315,11 @@
       .btn { width: 100%; }
     }
 
+
+    @media (max-width: 520px) {
+      .quick-facts { grid-template-columns: 1fr; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
       html { scroll-behavior: auto; }
@@ -341,9 +346,10 @@
           <h1>Серверок<br><span>для пацанов</span></h1>
           <p class="lead">Ламповый сервер, где можно выживать, строить базу, собирать ресурсы, угарать с друзьями и не париться из-за лишней духоты.</p>
           <div class="quick-facts">
-            <div class="fact">🟢 Онлайн 24/7</div>
+            <div class="fact">🟢 Uptime 98%</div>
             <div class="fact">🛡️ Стабильный вход</div>
             <div class="fact">🎮 Быстрый старт</div>
+            <div class="fact">💬 Живой саппорт</div>
           </div>
           <div class="buttons">
             <a class="btn btn-main" href="#play">Начать играть</a>
