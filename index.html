@@ -76,6 +76,16 @@
       font-size: .94rem;
     }
     .links a:hover { color: var(--text); background: rgba(255,255,255,.08); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-rule-btn {
+      min-height: 40px;
+      padding: 0 14px;
+      white-space: nowrap;
+    }
 
     .hero {
       min-height: 90vh;
@@ -219,19 +229,136 @@
       border-top: 1px solid rgba(255,255,255,.08);
     }
     .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .93rem; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 88px 16px 24px;
+      background: rgba(5,8,12,.76);
+      backdrop-filter: blur(10px);
+    }
+    .modal.open { display: flex; }
+    .modal-card {
+      width: min(100%, 980px);
+      max-height: min(760px, calc(100vh - 112px));
+      display: grid;
+      grid-template-rows: auto 1fr;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #111821;
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+      overflow: hidden;
+    }
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+    .modal-head h2 { margin: 0; font-size: 1.5rem; }
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      color: var(--text);
+      background: rgba(255,255,255,.08);
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+    .rules-layout {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+    }
+    .rules-tabs {
+      display: grid;
+      align-content: start;
+      gap: 8px;
+      padding: 16px;
+      border-right: 1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .rules-tab {
+      min-height: 44px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+    .rules-tab:hover,
+    .rules-tab.active {
+      color: var(--text);
+      border-color: rgba(88,214,141,.36);
+      background: rgba(88,214,141,.12);
+    }
+    .rules-content {
+      min-height: 0;
+      padding: 24px;
+      overflow: auto;
+    }
+    .rules-content h3 { margin-bottom: 14px; font-size: 1.45rem; }
+    .rules-content p { color: var(--muted); }
+    .rules-content ul { margin: 0; padding-left: 20px; color: var(--muted); }
+    .rules-content li + li { margin-top: 8px; }
+    .rules-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 18px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+    .rules-content th,
+    .rules-content td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+    .rules-content tr:last-child td { border-bottom: 0; }
+    .rules-content th { color: #dceef8; background: rgba(103,183,220,.12); }
 
     @media (max-width: 900px) {
       .grid, .rules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .split, .support, .steps { grid-template-columns: 1fr; }
+      .rules-layout { grid-template-columns: 1fr; }
+      .rules-tabs {
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        overflow-x: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
     }
     @media (max-width: 680px) {
       .nav, .wrap { width: min(100% - 24px, var(--content)); }
       .links { display: none; }
+      .brand span { display: none; }
       .hero { min-height: auto; padding: 96px 0 40px; }
       .actions, .buttons, .ip-strip { display: grid; grid-template-columns: 1fr; }
       .btn { width: 100%; }
       .grid, .rules { grid-template-columns: 1fr; }
       .section { padding: 42px 0; }
+      .header-rule-btn,
+      .icon-btn { width: auto; }
+      .modal { padding: 76px 12px 16px; }
+      .modal-card { max-height: calc(100vh - 92px); }
+      .modal-head { padding: 14px; }
+      .modal-head h2 { font-size: 1.2rem; }
+      .rules-content { padding: 18px; }
     }
   </style>
 </head>
@@ -248,6 +375,9 @@
         <a href="#join">Как зайти</a>
         <a href="#support">Поддержка</a>
       </nav>
+      <div class="nav-actions">
+        <button class="btn primary header-rule-btn" type="button" data-open-rules>Правила</button>
+      </div>
     </div>
   </header>
 
@@ -260,6 +390,7 @@
           <p class="lead">Ламповый сервер без лишней суеты: заходишь, добываешь ресурсы, строишь дом, развиваешь фермы и собираешься с друзьями в одном мире.</p>
           <div class="actions">
             <a class="btn primary" href="#join">Начать играть</a>
+            <button class="btn secondary" type="button" data-open-rules>Правила</button>
             <a class="btn secondary" href="https://t.me/kaLLoware_dev" target="_blank" rel="noopener">Написать в Telegram</a>
           </div>
           <div class="ip-strip" aria-label="IP сервера">
@@ -340,6 +471,25 @@
     </section>
   </main>
 
+  <div class="modal" id="rulesModal" role="dialog" aria-modal="true" aria-labelledby="rulesModalTitle" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h2 id="rulesModalTitle">Правила сервера</h2>
+        <button class="icon-btn" type="button" aria-label="Закрыть правила" data-close-rules>×</button>
+      </div>
+      <div class="rules-layout">
+        <div class="rules-tabs" role="tablist" aria-label="Разделы правил">
+          <button class="rules-tab active" type="button" role="tab" aria-selected="true" data-rule-tab="info">Информация</button>
+          <button class="rules-tab" type="button" role="tab" aria-selected="false" data-rule-tab="strong">Сильное наказание</button>
+          <button class="rules-tab" type="button" role="tab" aria-selected="false" data-rule-tab="medium">Среднее наказание</button>
+          <button class="rules-tab" type="button" role="tab" aria-selected="false" data-rule-tab="small">Маленькое наказание</button>
+          <button class="rules-tab" type="button" role="tab" aria-selected="false" data-rule-tab="warning">Предупреждение</button>
+        </div>
+        <div class="rules-content" id="rulesContent" tabindex="0"></div>
+      </div>
+    </div>
+  </div>
+
   <footer class="footer">
     <div class="wrap">
       <span>© 2026 Hammam Minecraft Server</span>
@@ -351,6 +501,87 @@
   <script>
     const copyStatus = document.getElementById("copyStatus");
     const serverIp = "Hammam.minerent.io";
+    const rulesModal = document.getElementById("rulesModal");
+    const rulesContent = document.getElementById("rulesContent");
+    const rulesTabs = document.querySelectorAll("[data-rule-tab]");
+    const rules = {
+      info: `
+        <h3>Информация</h3>
+        <p>На сервере есть четыре уровня наказаний:</p>
+        <table>
+          <thead><tr><th>Уровень</th><th>Что значит</th></tr></thead>
+          <tbody>
+            <tr><td>Сильное наказание</td><td>Выдаётся в зависимости от действия.</td></tr>
+            <tr><td>Среднее наказание</td><td>Бан от 1 до 12 часов.</td></tr>
+            <tr><td>Маленькое наказание</td><td>Бан от 15 минут до 4 часов.</td></tr>
+            <tr><td>Предупреждение</td><td>Обычное предупреждение.</td></tr>
+          </tbody>
+        </table>
+        <p>Если игрок получает 3 предупреждения, то больше предупреждений ему не будет.</p>
+      `,
+      strong: `
+        <h3>Сильное наказание</h3>
+        <p>Сильное наказание выдаётся за:</p>
+        <ul>
+          <li>X-ray</li>
+          <li>Читы</li>
+          <li>Эксплоиты</li>
+          <li>Абузы</li>
+          <li>Дюпы</li>
+          <li>DOS атаки</li>
+          <li>DDOS атаки</li>
+          <li>Взломы</li>
+          <li>Передача аккаунта</li>
+          <li>Лаг машины</li>
+        </ul>
+      `,
+      medium: `
+        <h3>Среднее наказание</h3>
+        <p>Среднее наказание выдаётся за:</p>
+        <ul>
+          <li>Максоры</li>
+          <li>Боты</li>
+          <li>Автофарм</li>
+        </ul>
+        <p>Если это автофармилка, которую игрок построил, но сам тыкает и убивает мобов, то наказания не будет.</p>
+      `,
+      small: `
+        <h3>Маленькое наказание</h3>
+        <p>Маленькое наказание выдаётся за:</p>
+        <ul>
+          <li>Не давать возможность развиться: убийства, грифы на ровном месте</li>
+          <li>Токс</li>
+        </ul>
+      `,
+      warning: `
+        <h3>Предупреждение</h3>
+        <p>Предупреждение выдаётся в зависимости от содеянного.</p>
+      `
+    };
+
+    function renderRules(key = "info") {
+      rulesContent.innerHTML = rules[key];
+      rulesTabs.forEach((tab) => {
+        const active = tab.dataset.ruleTab === key;
+        tab.classList.toggle("active", active);
+        tab.setAttribute("aria-selected", String(active));
+      });
+      rulesContent.scrollTop = 0;
+    }
+
+    function openRules() {
+      renderRules(document.querySelector(".rules-tab.active")?.dataset.ruleTab || "info");
+      rulesModal.classList.add("open");
+      rulesModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+      rulesContent.focus();
+    }
+
+    function closeRules() {
+      rulesModal.classList.remove("open");
+      rulesModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
 
     async function copyIp() {
       try {
@@ -365,6 +596,20 @@
     document.querySelectorAll("[data-copy-ip]").forEach((button) => {
       button.addEventListener("click", copyIp);
     });
+    document.querySelectorAll("[data-open-rules]").forEach((button) => {
+      button.addEventListener("click", openRules);
+    });
+    document.querySelector("[data-close-rules]").addEventListener("click", closeRules);
+    rulesModal.addEventListener("click", (event) => {
+      if (event.target === rulesModal) closeRules();
+    });
+    rulesTabs.forEach((tab) => {
+      tab.addEventListener("click", () => renderRules(tab.dataset.ruleTab));
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && rulesModal.classList.contains("open")) closeRules();
+    });
+    renderRules();
   </script>
 </body>
 </html>
