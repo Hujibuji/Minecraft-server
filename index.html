@@ -3,22 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hammam Minecraft Server: IP, РїСЂР°РІРёР»Р°, РїРѕРґРєР»СЋС‡РµРЅРёРµ Рё РїРѕРґРґРµСЂР¶РєР°." />
+  <meta name="description" content="Hammam Minecraft Server: IP, правила, подключение и поддержка." />
   <title>Hammam Minecraft Server</title>
   <style>
     :root {
       --bg: #0d1117;
       --panel: #151b24;
-      --panel-soft: #1c2530;
       --text: #f5f7fb;
       --muted: #b8c2cf;
       --line: rgba(255,255,255,.14);
       --green: #58d68d;
-      --amber: #f0b54d;
       --blue: #67b7dc;
       --radius: 8px;
-      --content: 1160px;
-      --hero-image: url("https://images.stockcake.com/public/e/2/c/e2c3e202-4aae-47be-9189-4706ac4eca89_large/voxel-valley-sunset-stockcake.jpg");
+      --content: 1120px;
+      --hero: url("https://images.stockcake.com/public/e/2/c/e2c3e202-4aae-47be-9189-4706ac4eca89_large/voxel-valley-sunset-stockcake.jpg");
     }
 
     * { box-sizing: border-box; }
@@ -29,7 +27,6 @@
       color: var(--text);
       background: var(--bg);
       line-height: 1.55;
-      overflow-x: hidden;
     }
     a { color: inherit; }
 
@@ -37,9 +34,9 @@
       position: fixed;
       inset: 0 0 auto;
       z-index: 10;
-      background: rgba(13,17,23,.86);
+      background: rgba(13,17,23,.9);
       border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(14px);
     }
     .nav {
       width: min(100% - 32px, var(--content));
@@ -55,7 +52,6 @@
       align-items: center;
       gap: 10px;
       font-weight: 900;
-      font-size: 1.08rem;
       text-decoration: none;
       white-space: nowrap;
     }
@@ -67,11 +63,10 @@
       background:
         linear-gradient(135deg, rgba(255,255,255,.2) 0 25%, transparent 25% 50%, rgba(0,0,0,.2) 50% 75%, transparent 75%),
         linear-gradient(135deg, #5fcf86 0 50%, #8b5a37 50%);
-      box-shadow: inset 0 -8px 0 rgba(0,0,0,.16);
     }
     .links {
       display: flex;
-      gap: 6px;
+      gap: 8px;
       align-items: center;
     }
     .links a {
@@ -82,62 +77,23 @@
       font-weight: 750;
       font-size: .94rem;
     }
-    .links a:hover,
-    .links a:focus-visible {
-      color: var(--text);
-      background: rgba(255,255,255,.08);
-      outline: none;
-    }
-    .menu {
-      display: none;
-      width: 42px;
-      height: 42px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      color: var(--text);
-      background: rgba(255,255,255,.08);
-      font-size: 1.3rem;
-      cursor: pointer;
-    }
+    .links a:hover { color: var(--text); background: rgba(255,255,255,.08); }
 
     .hero {
-      min-height: 88vh;
-      position: relative;
+      min-height: 90vh;
       display: flex;
       align-items: center;
-      padding: 112px 0 56px;
-      isolation: isolate;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background-image:
-        linear-gradient(90deg, rgba(13,17,23,.97) 0%, rgba(13,17,23,.76) 42%, rgba(13,17,23,.22) 74%),
-        linear-gradient(0deg, #0d1117 0%, rgba(13,17,23,0) 26%),
-        var(--hero-image);
-      background-size: cover;
-      background-position: center right;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background-image:
-        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-      background-size: 38px 38px;
-      mask-image: linear-gradient(90deg, black 0 52%, transparent 84%);
+      padding: 110px 0 56px;
+      background:
+        linear-gradient(90deg, rgba(13,17,23,.98), rgba(13,17,23,.76) 48%, rgba(13,17,23,.25)),
+        linear-gradient(0deg, var(--bg), rgba(13,17,23,0) 28%),
+        var(--hero) center right / cover no-repeat;
     }
     .wrap {
       width: min(100% - 32px, var(--content));
       margin: 0 auto;
     }
-    .hero-copy {
-      max-width: 680px;
-    }
+    .hero-copy { max-width: 680px; }
     .tag {
       display: inline-flex;
       margin: 0 0 18px;
@@ -147,14 +103,13 @@
       background: rgba(17,83,49,.4);
       color: #c7f8d8;
       font-weight: 850;
-      font-size: .92rem;
     }
     h1, h2, h3, p { margin-top: 0; }
     h1 {
-      max-width: 640px;
+      max-width: 650px;
       margin-bottom: 18px;
-      font-size: 4.2rem;
-      line-height: 1.02;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      line-height: 1.03;
       letter-spacing: 0;
     }
     .lead {
@@ -163,8 +118,7 @@
       color: var(--muted);
       font-size: 1.15rem;
     }
-    .actions,
-    .buttons {
+    .actions, .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -182,19 +136,9 @@
       font-weight: 850;
       text-decoration: none;
       cursor: pointer;
-      transition: transform .16s ease;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .primary {
-      color: #07140d;
-      background: var(--green);
-      box-shadow: 0 12px 30px rgba(88,214,141,.22);
-    }
-    .secondary {
-      color: var(--text);
-      background: rgba(255,255,255,.08);
-      border-color: var(--line);
-    }
+    .primary { color: #07140d; background: var(--green); }
+    .secondary { color: var(--text); background: rgba(255,255,255,.08); border-color: var(--line); }
     .ip-strip {
       width: min(100%, 760px);
       margin-top: 30px;
@@ -203,19 +147,13 @@
       gap: 12px;
       align-items: center;
     }
-    .ip-box,
-    .card,
-    .panel {
+    .box, .card, .panel, .support {
       border: 1px solid var(--line);
       border-radius: var(--radius);
-      background: rgba(21,27,36,.9);
+      background: rgba(21,27,36,.92);
       box-shadow: 0 12px 30px rgba(0,0,0,.18);
     }
-    .ip-box {
-      min-width: 0;
-      padding: 16px;
-      backdrop-filter: blur(10px);
-    }
+    .box { min-width: 0; padding: 16px; }
     .label {
       margin-bottom: 4px;
       color: var(--muted);
@@ -228,86 +166,29 @@
       font-weight: 950;
       overflow-wrap: anywhere;
     }
-    .copy-status {
-      min-height: 22px;
-      margin-top: 8px;
-      color: #c7f8d8;
-      font-weight: 700;
-      font-size: .93rem;
-    }
-    .ip-strip .btn { min-height: 64px; }
+    .copy-status { min-height: 22px; margin-top: 8px; color: #c7f8d8; font-weight: 700; }
 
     .section { padding: 76px 0; }
-    .section.alt {
-      background: #101722;
-      border-block: 1px solid rgba(255,255,255,.08);
-    }
-    .head {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-    .head h2 {
-      margin-bottom: 10px;
-      font-size: 2.15rem;
-      line-height: 1.14;
-    }
-    .head p {
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-    .card {
-      min-height: 160px;
-      padding: 18px;
-    }
-    .icon {
-      width: 38px;
-      height: 38px;
-      margin-bottom: 16px;
-      border-radius: 6px;
+    .section.alt { background: #101722; border-block: 1px solid rgba(255,255,255,.08); }
+    .head { max-width: 760px; margin-bottom: 28px; }
+    .head h2 { margin-bottom: 10px; font-size: 2.15rem; line-height: 1.14; }
+    .head p, .card p, .panel p, .support p, .step p, .rule p { color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+    .card, .panel, .step, .rule { padding: 18px; }
+    .card { min-height: 158px; }
+    .icon, .num {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 14px;
       display: grid;
       place-items: center;
-      background: rgba(103,183,220,.16);
-      color: #bfe8ff;
+      border-radius: 6px;
       font-weight: 900;
     }
-    .card h3,
-    .step h3,
-    .rule h3 {
-      margin-bottom: 8px;
-      font-size: 1.08rem;
-    }
-    .card p,
-    .step p,
-    .rule p,
-    .panel p {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-    .split {
-      display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 20px;
-      align-items: start;
-    }
-    .panel {
-      padding: 22px;
-      background: var(--panel-soft);
-    }
-    .panel h2 {
-      margin-bottom: 10px;
-      font-size: 1.72rem;
-    }
-    .pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
+    .icon { color: #bfe8ff; background: rgba(103,183,220,.16); }
+    .num { color: #07140d; background: var(--green); }
+    .split { display: grid; grid-template-columns: .85fr 1.15fr; gap: 20px; align-items: start; }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
     .pill {
       padding: 7px 10px;
       border-radius: var(--radius);
@@ -315,33 +196,9 @@
       background: rgba(255,255,255,.08);
       border: 1px solid rgba(255,255,255,.1);
       font-weight: 750;
-      font-size: .9rem;
     }
-    .rules,
-    .steps {
-      display: grid;
-      gap: 14px;
-    }
-    .rules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .rule,
-    .step {
-      padding: 18px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--panel);
-    }
-    .num {
-      width: 34px;
-      height: 34px;
-      margin-bottom: 16px;
-      display: grid;
-      place-items: center;
-      border-radius: 6px;
-      background: var(--green);
-      color: #07140d;
-      font-weight: 950;
-    }
+    .rules { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
     .note {
       margin-top: 18px;
       padding: 14px 16px;
@@ -356,103 +213,26 @@
       gap: 18px;
       align-items: center;
       padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background:
-        linear-gradient(135deg, rgba(88,214,141,.11), rgba(103,183,220,.08)),
-        var(--panel);
-    }
-    .support h2 {
-      margin-bottom: 8px;
-      font-size: 1.8rem;
+      background: linear-gradient(135deg, rgba(88,214,141,.11), rgba(103,183,220,.08)), var(--panel);
     }
     .footer {
       padding: 28px 0;
       color: var(--muted);
       border-top: 1px solid rgba(255,255,255,.08);
     }
-    .footer .wrap {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      font-size: .93rem;
-    }
+    .footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: .93rem; }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition: opacity .45s ease, transform .45s ease;
+    @media (max-width: 900px) {
+      .grid, .rules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .split, .support, .steps { grid-template-columns: 1fr; }
     }
-    .reveal.visible,
-    .hero .reveal {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (max-width: 980px) {
-      h1 { font-size: 3.35rem; }
-      .hero::before {
-        background-image:
-          linear-gradient(90deg, rgba(13,17,23,.97) 0%, rgba(13,17,23,.84) 58%, rgba(13,17,23,.36) 100%),
-          linear-gradient(0deg, #0d1117 0%, rgba(13,17,23,0) 30%),
-          var(--hero-image);
-      }
-      .grid,
-      .rules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .split,
-      .support { grid-template-columns: 1fr; }
-      .steps { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .nav,
-      .wrap { width: min(100% - 24px, var(--content)); }
-      .menu {
-        display: inline-grid;
-        place-items: center;
-      }
-      .links {
-        position: absolute;
-        top: 76px;
-        right: 12px;
-        left: 12px;
-        display: grid;
-        padding: 10px;
-        border: 1px solid var(--line);
-        border-radius: var(--radius);
-        background: rgba(13,17,23,.97);
-        opacity: 0;
-        transform: translateY(-8px);
-        pointer-events: none;
-        transition: opacity .18s ease, transform .18s ease;
-      }
-      .links.open {
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-      }
-      .links a { text-align: center; }
-      .hero {
-        min-height: auto;
-        padding: 98px 0 36px;
-      }
-      h1 {
-        max-width: 330px;
-        font-size: 1.65rem;
-        line-height: 1.08;
-      }
-      .lead { font-size: 1rem; }
-      .actions,
-      .buttons,
-      .ip-strip {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 680px) {
+      .nav, .wrap { width: min(100% - 24px, var(--content)); }
+      .links { display: none; }
+      .hero { min-height: auto; padding: 96px 0 40px; }
+      .actions, .buttons, .ip-strip { display: grid; grid-template-columns: 1fr; }
       .btn { width: 100%; }
-      .ip-strip .btn { min-height: 48px; }
-      .grid,
-      .rules { grid-template-columns: 1fr; }
+      .grid, .rules { grid-template-columns: 1fr; }
       .section { padding: 42px 0; }
     }
   </style>
@@ -464,12 +244,11 @@
         <span class="mark" aria-hidden="true"></span>
         <span>Hammam Server</span>
       </a>
-      <button class="menu" type="button" aria-label="РћС‚РєСЂС‹С‚СЊ РјРµРЅСЋ" aria-expanded="false" aria-controls="mainNav">в°</button>
       <nav class="links" id="mainNav">
-        <a href="#about">Рћ СЃРµСЂРІРµСЂРµ</a>
-        <a href="#rules">РџСЂР°РІРёР»Р°</a>
-        <a href="#join">РљР°Рє Р·Р°Р№С‚Рё</a>
-        <a href="#support">РџРѕРґРґРµСЂР¶РєР°</a>
+        <a href="#about">О сервере</a>
+        <a href="#rules">Правила</a>
+        <a href="#join">Как зайти</a>
+        <a href="#support">Поддержка</a>
       </nav>
     </div>
   </header>
@@ -477,21 +256,21 @@
   <main id="top">
     <section class="hero">
       <div class="wrap">
-        <div class="hero-copy reveal">
-          <p class="tag">Minecraft-СЃРµСЂРІРµСЂ РґР»СЏ СЃРІРѕРµР№ РєРѕРјРїР°РЅРёРё</p>
-          <h1>Hammam: РІС‹Р¶РёРІР°РЅРёРµ, Р±Р°Р·Р° Рё РґРІРёР¶ СЃ РґСЂСѓР·СЊСЏРјРё</h1>
-          <p class="lead">Р›Р°РјРїРѕРІС‹Р№ СЃРµСЂРІРµСЂ Р±РµР· Р»РёС€РЅРµР№ СЃСѓРµС‚С‹: Р·Р°С…РѕРґРёС€СЊ, РґРѕР±С‹РІР°РµС€СЊ СЂРµСЃСѓСЂСЃС‹, СЃС‚СЂРѕРёС€СЊ РґРѕРј, СЂР°Р·РІРёРІР°РµС€СЊ С„РµСЂРјС‹ Рё СЃРѕР±РёСЂР°РµС€СЊСЃСЏ СЃ РїР°С†Р°РЅР°РјРё РІ РѕРґРЅРѕРј РјРёСЂРµ.</p>
+        <div class="hero-copy">
+          <p class="tag">Minecraft-сервер для своей компании</p>
+          <h1>Hammam: выживание, база и движ с друзьями</h1>
+          <p class="lead">Ламповый сервер без лишней суеты: заходишь, добываешь ресурсы, строишь дом, развиваешь фермы и собираешься с друзьями в одном мире.</p>
           <div class="actions">
-            <a class="btn primary" href="#join">РќР°С‡Р°С‚СЊ РёРіСЂР°С‚СЊ</a>
-            <a class="btn secondary" href="https://t.me/kaLLoware_dev" target="_blank" rel="noopener">РќР°РїРёСЃР°С‚СЊ РІ Telegram</a>
+            <a class="btn primary" href="#join">Начать играть</a>
+            <a class="btn secondary" href="https://t.me/kaLLoware_dev" target="_blank" rel="noopener">Написать в Telegram</a>
           </div>
-          <div class="ip-strip" aria-label="IP СЃРµСЂРІРµСЂР°">
-            <div class="ip-box">
-              <div class="label">IP СЃРµСЂРІРµСЂР°</div>
+          <div class="ip-strip" aria-label="IP сервера">
+            <div class="box">
+              <div class="label">IP сервера</div>
               <div class="ip">Hammam.minerent.io</div>
               <div class="copy-status" id="copyStatus" aria-live="polite"></div>
             </div>
-            <button class="btn primary" type="button" data-copy-ip>РЎРєРѕРїРёСЂРѕРІР°С‚СЊ IP</button>
+            <button class="btn primary" type="button" data-copy-ip>Скопировать IP</button>
           </div>
         </div>
       </div>
@@ -499,67 +278,67 @@
 
     <section class="section" id="about">
       <div class="wrap">
-        <div class="head reveal">
-          <h2>Р§С‚Рѕ РІРЅСѓС‚СЂРё</h2>
-          <p>Р‘С‹СЃС‚СЂРѕ РїРѕРЅСЏС‚СЊ, РєСѓРґР° Р·Р°С…РѕРґРёС‚СЊ, С‡С‚Рѕ РјРѕР¶РЅРѕ РґРµР»Р°С‚СЊ Рё РіРґРµ СЃРїСЂРѕСЃРёС‚СЊ РїРѕРјРѕС‰СЊ, РµСЃР»Рё РїРѕРґРєР»СЋС‡РµРЅРёРµ РЅРµ СЂР°Р±РѕС‚Р°РµС‚.</p>
+        <div class="head">
+          <h2>Что внутри</h2>
+          <p>Быстро понять, куда заходить, что можно делать и где спросить помощь, если подключение не работает.</p>
         </div>
         <div class="grid">
-          <article class="card reveal"><div class="icon">S</div><h3>Survival</h3><p>РЁР°С…С‚С‹, С„РµСЂРјС‹, РґРѕРјР°, С‚РѕСЂРіРѕРІР»СЏ Рё СЃРѕРІРјРµСЃС‚РЅС‹Рµ РїСЂРѕРµРєС‚С‹.</p></article>
-          <article class="card reveal"><div class="icon">B</div><h3>Р‘Р°Р·С‹ Рё СЃС‚СЂРѕР№РєРё</h3><p>Р›РёС‡РЅС‹Рµ Р±Р°Р·С‹, РѕР±С‰РёР№ СЃРїР°РІРЅ Рё РїРѕСЃРµР»РµРЅРёСЏ РґР»СЏ РєРѕРјР°РЅРґС‹.</p></article>
-          <article class="card reveal"><div class="icon">P</div><h3>PvP РїРѕ РґРѕРіРѕРІРѕСЂРµРЅРЅРѕСЃС‚Рё</h3><p>РЎРЅР°С‡Р°Р»Р° РґРѕРіРѕРІРѕСЂРёР»РёСЃСЊ, РїРѕС‚РѕРј РІРѕСЋРµРј. Р‘РµР· С…Р°РѕСЃР°.</p></article>
-          <article class="card reveal"><div class="icon">T</div><h3>РџРѕРґРґРµСЂР¶РєР°</h3><p>Р•СЃР»Рё РЅРµ Р·Р°РїСѓСЃРєР°РµС‚СЃСЏ Р»Р°СѓРЅС‡РµСЂ РёР»Рё РЅРµ РІРёРґРµРЅ СЃРµСЂРІРµСЂ, РїРёС€РёС‚Рµ РІ Telegram.</p></article>
+          <article class="card"><div class="icon">S</div><h3>Survival</h3><p>Шахты, фермы, дома, торговля и совместные проекты.</p></article>
+          <article class="card"><div class="icon">B</div><h3>Базы и стройки</h3><p>Личные базы, общий спавн и поселения для команды.</p></article>
+          <article class="card"><div class="icon">P</div><h3>PvP по договоренности</h3><p>Сначала договорились, потом воюем. Без хаоса.</p></article>
+          <article class="card"><div class="icon">T</div><h3>Поддержка</h3><p>Если не запускается лаунчер или не виден сервер, пишите в Telegram.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section alt" id="rules">
       <div class="wrap split">
-        <div class="panel reveal">
-          <h2>РџСЂР°РІРёР»Р° РєРѕСЂРѕС‚РєРѕ</h2>
-          <p>РЎРµСЂРІРµСЂ СЂР°СЃСЃС‡РёС‚Р°РЅ РЅР° РЅРѕСЂРјР°Р»СЊРЅСѓСЋ РёРіСЂСѓ РІ РЅРµР±РѕР»СЊС€РѕР№ РєРѕРјРїР°РЅРёРё: РЅРµ Р»РѕРјР°С‚СЊ С‡СѓР¶РѕРµ, РЅРµ РјРµС€Р°С‚СЊ РёРіСЂР°С‚СЊ Рё РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‡РёС‚С‹.</p>
+        <div class="panel">
+          <h2>Правила коротко</h2>
+          <p>Сервер рассчитан на нормальную игру в небольшой компании: не ломать чужое, не мешать играть и не использовать читы.</p>
           <div class="pills">
-            <span class="pill">Р’С‹Р¶РёРІР°РЅРёРµ</span>
-            <span class="pill">Р”Р»СЏ РґСЂСѓР·РµР№</span>
-            <span class="pill">Р‘РµР· С‡РёС‚РѕРІ</span>
-            <span class="pill">РЎС‚СЂРѕР№РєР°</span>
+            <span class="pill">Выживание</span>
+            <span class="pill">Для друзей</span>
+            <span class="pill">Без читов</span>
+            <span class="pill">Стройка</span>
           </div>
         </div>
         <div class="rules">
-          <article class="rule reveal"><div class="num">1</div><h3>РќРµ РіСЂРёС„РµСЂРёС‚СЊ</h3><p>Р§СѓР¶РёРµ РґРѕРјР°, СЃСѓРЅРґСѓРєРё, С„РµСЂРјС‹ Рё РјРµС…Р°РЅРёР·РјС‹ РЅРµ С‚СЂРѕРіР°РµРј Р±РµР· СЂР°Р·СЂРµС€РµРЅРёСЏ.</p></article>
-          <article class="rule reveal"><div class="num">2</div><h3>РќРµ С‡РёС‚РµСЂРёС‚СЊ</h3><p>X-Ray, Р°РІС‚РѕРєР»РёРєРµСЂС‹, РґСЋРїС‹ Рё Р»СЋР±С‹Рµ РїСЂРµРёРјСѓС‰РµСЃС‚РІР° Р»РѕРјР°СЋС‚ РёРіСЂСѓ РґР»СЏ РІСЃРµС….</p></article>
-          <article class="rule reveal"><div class="num">3</div><h3>Р РµС€Р°С‚СЊ СЃРїРѕСЂС‹ СЃРїРѕРєРѕР№РЅРѕ</h3><p>Р•СЃР»Рё С‡С‚Рѕ-С‚Рѕ СЃР»СѓС‡РёР»РѕСЃСЊ, РїРёС€РёС‚Рµ РІ РїРѕРґРґРµСЂР¶РєСѓ Рё РѕР±СЉСЏСЃРЅСЏР№С‚Рµ СЃРёС‚СѓР°С†РёСЋ РїРѕ С„Р°РєС‚Р°Рј.</p></article>
-          <article class="rule reveal"><div class="num">4</div><h3>Р‘РµСЂРµС‡СЊ СЃРїР°РІРЅ</h3><p>РћР±С‰РёР№ СЃРїР°РІРЅ Рё РґРѕСЂРѕРіРё РЅСѓР¶РЅС‹ РІСЃРµРј, РїРѕСЌС‚РѕРјСѓ РЅРµ Р·Р°СЃС‚СЂР°РёРІР°РµРј РёС… СЃР»СѓС‡Р°Р№РЅС‹РјРё Р±Р»РѕРєР°РјРё.</p></article>
+          <article class="rule"><div class="num">1</div><h3>Не гриферить</h3><p>Чужие дома, сундуки, фермы и механизмы не трогаем без разрешения.</p></article>
+          <article class="rule"><div class="num">2</div><h3>Не читерить</h3><p>X-Ray, автокликеры, дюпы и любые преимущества ломают игру для всех.</p></article>
+          <article class="rule"><div class="num">3</div><h3>Решать споры спокойно</h3><p>Если что-то случилось, пишите в поддержку и объясняйте ситуацию по фактам.</p></article>
+          <article class="rule"><div class="num">4</div><h3>Беречь спавн</h3><p>Общий спавн и дороги нужны всем, поэтому не застраиваем их случайными блоками.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="join">
       <div class="wrap">
-        <div class="head reveal">
-          <h2>РљР°Рє Р·Р°Р№С‚Рё</h2>
-          <p>РўСЂРё С€Р°РіР°: СЃРєР°С‡Р°Р№С‚Рµ РЅСѓР¶РЅС‹Рµ С„Р°Р№Р»С‹, РґРѕР±Р°РІСЊС‚Рµ СЃРµСЂРІРµСЂ РІ Minecraft Рё РїРѕРґРєР»СЋС‡Р°Р№С‚РµСЃСЊ РїРѕ IP.</p>
+        <div class="head">
+          <h2>Как зайти</h2>
+          <p>Три шага: скачайте нужные файлы, добавьте сервер в Minecraft и подключайтесь по IP.</p>
         </div>
         <div class="steps">
-          <article class="step reveal"><div class="num">1</div><h3>РџРѕРґРіРѕС‚РѕРІСЊС‚Рµ РєР»РёРµРЅС‚</h3><p>Р•СЃР»Рё РЅСѓР¶РЅС‹ РіРѕС‚РѕРІС‹Рµ С„Р°Р№Р»С‹ РґР»СЏ РІС…РѕРґР°, СЃРєР°С‡Р°Р№С‚Рµ СѓСЃС‚Р°РЅРѕРІС‰РёРє.</p></article>
-          <article class="step reveal"><div class="num">2</div><h3>Р”РѕР±Р°РІСЊС‚Рµ СЃРµСЂРІРµСЂ</h3><p>Р’ СЃРµС‚РµРІРѕР№ РёРіСЂРµ РІСЃС‚Р°РІСЊС‚Рµ Р°РґСЂРµСЃ Hammam.minerent.io.</p></article>
-          <article class="step reveal"><div class="num">3</div><h3>Р—Р°С…РѕРґРёС‚Рµ РІ РјРёСЂ</h3><p>Р’С‹Р±РµСЂРёС‚Рµ РјРµСЃС‚Рѕ РїРѕРґ Р±Р°Р·Сѓ, СЃРѕР±РµСЂРёС‚Рµ СЂРµСЃСѓСЂСЃС‹ Рё РЅР°С‡РёРЅР°Р№С‚Рµ СЃС‚СЂРѕР№РєСѓ.</p></article>
+          <article class="step"><div class="num">1</div><h3>Подготовьте клиент</h3><p>Если нужны готовые файлы для входа, скачайте установщик.</p></article>
+          <article class="step"><div class="num">2</div><h3>Добавьте сервер</h3><p>В сетевой игре вставьте адрес Hammam.minerent.io.</p></article>
+          <article class="step"><div class="num">3</div><h3>Заходите в мир</h3><p>Выберите место под базу, соберите ресурсы и начинайте стройку.</p></article>
         </div>
-        <div class="note reveal">Р•СЃР»Рё Р±СЂР°СѓР·РµСЂ РїСЂРµРґСѓРїСЂРµР¶РґР°РµС‚ Рѕ СЃРєР°С‡РёРІР°РЅРёРё .exe, РїСЂРё СЃРѕРјРЅРµРЅРёСЏС… РЅР°РїРёС€РёС‚Рµ РІ РїРѕРґРґРµСЂР¶РєСѓ РїРµСЂРµРґ Р·Р°РїСѓСЃРєРѕРј С„Р°Р№Р»Р°.</div>
-        <div class="buttons reveal" style="margin-top:18px">
-          <button class="btn secondary" type="button" data-copy-ip>РЎРєРѕРїРёСЂРѕРІР°С‚СЊ IP</button>
-          <a class="btn primary" href="https://github.com/pocoi67okak/installer/releases/download/asdasdwads/pocoi6767.exe">РЎРєР°С‡Р°С‚СЊ СѓСЃС‚Р°РЅРѕРІС‰РёРє</a>
+        <div class="note">Если браузер предупреждает о скачивании .exe, при сомнениях напишите в поддержку перед запуском файла.</div>
+        <div class="buttons" style="margin-top:18px">
+          <button class="btn secondary" type="button" data-copy-ip>Скопировать IP</button>
+          <a class="btn primary" href="https://github.com/pocoi67okak/installer/releases/download/asdasdwads/pocoi6767.exe">Скачать установщик</a>
         </div>
       </div>
     </section>
 
     <section class="section alt" id="support">
       <div class="wrap">
-        <div class="support reveal">
+        <div class="support">
           <div>
-            <h2>РќСѓР¶РЅР° РїРѕРјРѕС‰СЊ?</h2>
-            <p>РќРµ Р·Р°РїСѓСЃРєР°РµС‚СЃСЏ, РЅРµ Р·Р°С…РѕРґРёС‚, РЅСѓР¶РЅР° РІРµСЂСЃРёСЏ РєР»РёРµРЅС‚Р° РёР»Рё РґРѕСЃС‚СѓРї РЅР° СЃРµСЂРІРµСЂ? РќР°РїРёС€РёС‚Рµ РІ Telegram, СЂР°Р·Р±РµСЂРµРј РїСЂРѕР±Р»РµРјСѓ.</p>
+            <h2>Нужна помощь?</h2>
+            <p>Не запускается, не заходит, нужна версия клиента или доступ на сервер? Напишите в Telegram, разберем проблему.</p>
           </div>
-          <a class="btn primary" href="https://t.me/kaLLoware_dev" target="_blank" rel="noopener">РћС‚РєСЂС‹С‚СЊ Telegram</a>
+          <a class="btn primary" href="https://t.me/kaLLoware_dev" target="_blank" rel="noopener">Открыть Telegram</a>
         </div>
       </div>
     </section>
@@ -567,36 +346,22 @@
 
   <footer class="footer">
     <div class="wrap">
-      <span>В© 2026 Hammam Minecraft Server</span>
+      <span>© 2026 Hammam Minecraft Server</span>
       <span>IP: Hammam.minerent.io</span>
-      <span>Р¤РѕРЅ: StockCake</span>
+      <span>Домен: site.kalloware.space</span>
     </div>
   </footer>
 
   <script>
-    const nav = document.getElementById("mainNav");
-    const menu = document.querySelector(".menu");
     const copyStatus = document.getElementById("copyStatus");
     const serverIp = "Hammam.minerent.io";
-
-    menu.addEventListener("click", () => {
-      const isOpen = nav.classList.toggle("open");
-      menu.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    nav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
-        menu.setAttribute("aria-expanded", "false");
-      });
-    });
 
     async function copyIp() {
       try {
         await navigator.clipboard.writeText(serverIp);
-        copyStatus.textContent = `IP СЃРєРѕРїРёСЂРѕРІР°РЅ: ${serverIp}`;
+        copyStatus.textContent = `IP скопирован: ${serverIp}`;
       } catch {
-        copyStatus.textContent = `РЎРєРѕРїРёСЂСѓР№С‚Рµ IP РІСЂСѓС‡РЅСѓСЋ: ${serverIp}`;
+        copyStatus.textContent = `Скопируйте IP вручную: ${serverIp}`;
       }
       setTimeout(() => { copyStatus.textContent = ""; }, 2200);
     }
@@ -604,17 +369,6 @@
     document.querySelectorAll("[data-copy-ip]").forEach((button) => {
       button.addEventListener("click", copyIp);
     });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: .14 });
-
-    document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
   </script>
 </body>
 </html>
