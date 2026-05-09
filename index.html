@@ -16,7 +16,7 @@
       --blue: #67b7dc;
       --radius: 8px;
       --content: 1120px;
-      --hero: url("https://images.stockcake.com/public/e/2/c/e2c3e202-4aae-47be-9189-4706ac4eca89_large/voxel-valley-sunset-stockcake.jpg");
+      --hero: url("https://raw.githubusercontent.com/Hujibuji/Minecraft-server/refs/heads/main/backgrd.png");
     }
 
     * { box-sizing: border-box; }
@@ -59,10 +59,8 @@
       width: 34px;
       height: 34px;
       border-radius: 6px;
-      border: 1px solid rgba(255,255,255,.18);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.2) 0 25%, transparent 25% 50%, rgba(0,0,0,.2) 50% 75%, transparent 75%),
-        linear-gradient(135deg, #5fcf86 0 50%, #8b5a37 50%);
+      object-fit: cover;
+      display: block;
     }
     .links {
       display: flex;
@@ -241,7 +239,7 @@
   <header class="header">
     <div class="nav">
       <a class="brand" href="#top" aria-label="Hammam Minecraft Server">
-        <span class="mark" aria-hidden="true"></span>
+        <img class="mark" src="https://raw.githubusercontent.com/Hujibuji/Minecraft-server/refs/heads/main/logo.png" alt="" aria-hidden="true" />
         <span>Hammam Server</span>
       </a>
       <nav class="links" id="mainNav">
@@ -304,10 +302,8 @@
           </div>
         </div>
         <div class="rules">
-          <article class="rule"><div class="num">1</div><h3>Не гриферить</h3><p>Чужие дома, сундуки, фермы и механизмы не трогаем без разрешения.</p></article>
-          <article class="rule"><div class="num">2</div><h3>Не читерить</h3><p>X-Ray, автокликеры, дюпы и любые преимущества ломают игру для всех.</p></article>
-          <article class="rule"><div class="num">3</div><h3>Решать споры спокойно</h3><p>Если что-то случилось, пишите в поддержку и объясняйте ситуацию по фактам.</p></article>
-          <article class="rule"><div class="num">4</div><h3>Беречь спавн</h3><p>Общий спавн и дороги нужны всем, поэтому не застраиваем их случайными блоками.</p></article>
+          <article class="rule"><div class="num">1</div><h3>Не читерить</h3><p>X-Ray, автокликеры, дюпы и любые преимущества ломают игру для всех.</p></article>
+          <article class="rule"><div class="num">2</div><h3>Беречь спавн</h3><p>Общий спавн и дороги нужны всем, поэтому не застраиваем их случайными блоками.</p></article>
         </div>
       </div>
     </section>
